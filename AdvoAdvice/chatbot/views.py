@@ -17,7 +17,7 @@ def chat(request):
                     model="gpt-3.5-turbo",
                     messages=[{
                         'role': 'user',
-                        'content': "convert this into layman language " + question
+                        'content':  question
                     }]
                 )
         assistant_response = response['choices'][0]['message']['content']
@@ -35,6 +35,6 @@ def chat(request):
             all_chats = Chat.objects.all()
         except:
             pass
-        
+
         return render(request, 'index.html')
 
